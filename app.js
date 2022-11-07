@@ -41,3 +41,7 @@ app.post("/api/users", usersHandler.postUser);
 //* PUT METHOD =========================
 app.put("/api/movies/:id", movieHandlers.updateMovie);
 app.put("/api/users/:id", usersHandler.updateUser);
+
+//* DELETE METHOD =========================
+app.delete("/api/movies/:id", movieHandlers.deleteMovie);
+app.delete("/api/users/:id", usersHandler.deleteUser);
