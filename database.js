@@ -27,4 +27,12 @@ const database = mysql.createPool({
     console.log(err)
   })
 
+  database.query('select * from users')
+  .then(([users])=>{
+    console.log(users)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
   module.exports = database;
