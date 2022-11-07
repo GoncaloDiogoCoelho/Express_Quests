@@ -44,8 +44,26 @@ const postUser = (req, res) => {
   })
 }
 
+const updateUser = (req, res) => {
+  const id = parseInt(req.params.id);
+  const {firstname, lastname, email, city, language} = req.body;
+
+  database
+  .then(([result])=>{
+    if (result.affectedRows === 0) {
+      res.status(404).send("Not Found");
+    } else {
+      res.sendStatus(204);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).send("Error editing the user update")
+  })
+}
 module.exports = {
   getUsers,
   getUsersById,
   postUser,
+  updateUser,
 };
